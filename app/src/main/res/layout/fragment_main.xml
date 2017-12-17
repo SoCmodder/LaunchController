@@ -27,16 +27,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/data_monitor_tv"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_marginLeft="@dimen/data_margin"
         android:layout_marginRight="@dimen/data_margin"
         android:layout_marginBottom="@dimen/data_margin"
-        android:layout_height="150dp"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_blue_bright"
-        android:text="Hello World!" />
+        android:layout_height="300dp"
+        android:background="@android:color/holo_blue_bright" />
 
 </RelativeLayout>

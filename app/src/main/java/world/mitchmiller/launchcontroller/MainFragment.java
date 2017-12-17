@@ -11,6 +11,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,8 +21,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import world.mitchmiller.launchcontroller.bt_chat.BTMessageAdapter;
 
 /**
  * Created by Mitch Miller on 12/17/2017.
@@ -37,7 +39,8 @@ public class MainFragment extends Fragment {
 
     private Button videoRecordingButton;
     private Button dataRecordingButton;
-    private TextView dataMonitor;
+    private RecyclerView dataMonitor;
+    private BTMessageAdapter messageAdapter;
 
     /**
      * Name of the connected device
@@ -291,7 +294,7 @@ public class MainFragment extends Fragment {
 
             // Reset out string buffer to zero and clear the edit text field
             mOutStringBuffer.setLength(0);
-            dataMonitor.setText(mOutStringBuffer);
+            //dataMonitor.setText(mOutStringBuffer);
         }
     }
 
