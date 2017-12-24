@@ -27,4 +27,25 @@
 
     <string name="sample_show_log">Show Log</string>
     <string name="sample_hide_log">Hide Log</string>
+
+    <!-- unit labels -->
+    <string name="mass_unit_label">kg</string>
+    <string name="acceleration_unit_label">m/s^2</string>
+    <string name="area_unit_label">m^2</string>
+
+
+
+    <!--m = rocket mass in kg (see below)
+g = acceleration of gravity = 9.81 m/s2
+A = rocket cross-sectional area in m2
+Cd = drag coefficient = 0.75 for average rocket
+r (rho) = air density = 1.22 kg/m3
+t = motor burn time in seconds (NOTE: little t)
+T = motor thrust in Newtons (NOTE: big T)
+I = motor impulse in Newton-seconds
+v = burnout velocity in m/s
+y1 = altitude at burnout
+yc = coasting distance
+Note that the peak altitude is y1 + yc
+ta = coasting time => delay time for motor-->
 </resources>

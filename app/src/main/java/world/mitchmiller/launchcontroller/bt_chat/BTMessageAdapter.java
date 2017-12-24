@@ -45,12 +45,18 @@ public class BTMessageAdapter extends RecyclerView.Adapter<BTMessageAdapter.Mess
         return messages.size();
     }
 
+    public void addMessage(String message) {
+        messages.add(message);
+        notifyDataSetChanged();
+    }
+
     public static class MessageHolder extends RecyclerView.ViewHolder {
 
         TextView messageText;
 
         public MessageHolder(View itemView) {
             super(itemView);
+            messageText = itemView.findViewById(R.id.text);
         }
     }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="e_9_6_impulse">30</dimen>
+    <dimen name="e_9_6_time_delay">6</dimen>
+    <dimen name="e_9_6_max_lift_oz">12</dimen>
+    <dimen name="e_9_6_max_thrust_newtons">25</dimen>
+    <dimen name="e_9_6_thrust_duration">2.8</dimen>
+    <dimen name="e_9_6_init_weight_oz">2</dimen>
+    <dimen name="e_9_6_propellant_weight_oz">1.27</dimen>
+
+    <dimen name="e_9_4_impulse">30</dimen>
+    <dimen name="e_9_4_time_delay">4</dimen>
+    <dimen name="e_9_4_max_lift_oz">15</dimen>
+    <dimen name="e_9_4_max_thrust_newtons">25</dimen>
+    <dimen name="e_9_4_thrust_duration">2.8</dimen>
+    <dimen name="e_9_4_init_weight_oz">2</dimen>
+    <dimen name="e_9_4_propellant_weight_oz">1.27</dimen>
+</resources>

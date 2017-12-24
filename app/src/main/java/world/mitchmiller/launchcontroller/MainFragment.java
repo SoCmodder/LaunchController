@@ -1,5 +1,6 @@
 package world.mitchmiller.launchcontroller;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -11,6 +12,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +24,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import world.mitchmiller.launchcontroller.bt_chat.BTMessageAdapter;
 
@@ -242,7 +246,18 @@ public class MainFragment extends Fragment {
         dataRecordingButton = v.findViewById(R.id.record_data);
         dataMonitor = v.findViewById(R.id.data_monitor_tv);
 
+        messageAdapter = new BTMessageAdapter(getContext(), new ArrayList<String>());
+        dataMonitor.setLayoutManager(new LinearLayoutManager(getContext()));
+        dataMonitor.setHasFixedSize(true);
+        dataMonitor.setAdapter(messageAdapter);
+
         return v;
+    }
+
+    private void logMessage(String message) {
+        if (messageAdapter != null) {
+            messageAdapter.addMessage(message);
+        }
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -267,6 +282,7 @@ public class MainFragment extends Fragment {
                 } else {
                     // User did not enable Bluetooth or an error occurred
                     Log.d(TAG, "BT not enabled");
+                    logMessage("BT not enabled");
                     Toast.makeText(getActivity(), R.string.bt_not_enabled_leaving,
                             Toast.LENGTH_SHORT).show();
                     getActivity().finish();
@@ -283,6 +299,7 @@ public class MainFragment extends Fragment {
         // Check that we're actually connected before trying anything
         if (mChatService.getState() != BluetoothChatService.STATE_CONNECTED) {
             Toast.makeText(getActivity(), R.string.not_connected, Toast.LENGTH_SHORT).show();
+            logMessage("sendMessage() - not connected to a device");
             return;
         }
 
@@ -329,6 +346,7 @@ public class MainFragment extends Fragment {
     /**
      * The Handler that gets information back from the BluetoothChatService
      */
+    @SuppressLint("HandlerLeak")
     private final Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -338,6 +356,7 @@ public class MainFragment extends Fragment {
                     switch (msg.arg1) {
                         case BluetoothChatService.STATE_CONNECTED:
                             setStatus(getString(R.string.title_connected_to, mConnectedDeviceName));
+                            logMessage(getString(R.string.title_connected_to, mConnectedDeviceName));
                             mConversationArrayAdapter.clear();
                             break;
                         case BluetoothChatService.STATE_CONNECTING:
@@ -360,6 +379,7 @@ public class MainFragment extends Fragment {
                     // construct a string from the valid bytes in the buffer
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
+                    messageAdapter.addMessage(mConnectedDeviceName + ":  " + readMessage);
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
