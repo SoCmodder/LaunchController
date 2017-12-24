@@ -380,6 +380,7 @@ public class MainFragment extends Fragment {
                     String readMessage = new String(readBuf, 0, msg.arg1);
                     mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
                     messageAdapter.addMessage(mConnectedDeviceName + ":  " + readMessage);
+                    dataMonitor.smoothScrollToPosition(messageAdapter.getItemCount() - 1);
                     break;
                 case Constants.MESSAGE_DEVICE_NAME:
                     // save the connected device's name
