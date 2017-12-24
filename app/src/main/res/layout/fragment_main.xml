@@ -31,10 +31,8 @@
         android:id="@+id/data_monitor_tv"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_marginLeft="@dimen/data_margin"
-        android:layout_marginRight="@dimen/data_margin"
-        android:layout_marginBottom="@dimen/data_margin"
+        android:padding="8dp"
         android:layout_height="300dp"
-        android:background="@android:color/holo_blue_bright" />
+        android:background="@color/colorPrimaryDark" />
 
 </RelativeLayout>

@@ -25,7 +25,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import world.mitchmiller.launchcontroller.bt_chat.BTMessageAdapter;
 
@@ -168,11 +170,6 @@ public class MainFragment extends Fragment {
         // Initialize the array adapter for the conversation thread
         mConversationArrayAdapter = new ArrayAdapter<>(getActivity(), R.layout.message);
 
-//        mConversationView.setAdapter(mConversationArrayAdapter);
-//
-//        // Initialize the compose field with a listener for the return key
-//        mOutEditText.setOnEditorActionListener(mWriteListener);
-//
         // Initialize the send button with a listener that for click events
         videoRecordingButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -246,17 +243,23 @@ public class MainFragment extends Fragment {
         dataRecordingButton = v.findViewById(R.id.record_data);
         dataMonitor = v.findViewById(R.id.data_monitor_tv);
 
-        messageAdapter = new BTMessageAdapter(getContext(), new ArrayList<String>());
-        dataMonitor.setLayoutManager(new LinearLayoutManager(getContext()));
-        dataMonitor.setHasFixedSize(true);
-        dataMonitor.setAdapter(messageAdapter);
+        setupMessageAdapter();
 
         return v;
     }
 
+    private void setupMessageAdapter() {
+        messageAdapter = new BTMessageAdapter(getContext(), new ArrayList<String>());
+        dataMonitor.setLayoutManager(new LinearLayoutManager(getContext()));
+        dataMonitor.setAdapter(messageAdapter);
+
+        logMessage(getString(R.string.init_message));
+    }
+
     private void logMessage(String message) {
+        String timestamp = DateFormat.getTimeInstance().format(new Date());
         if (messageAdapter != null) {
-            messageAdapter.addMessage(message);
+            messageAdapter.addMessage(timestamp + ": " + message);
         }
     }
 
