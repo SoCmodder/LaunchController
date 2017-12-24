@@ -198,7 +198,7 @@ public class MainFragment extends Fragment {
         });
 
         // Initialize the BluetoothChatService to perform bluetooth connections
-        mChatService = new BluetoothChatService(getActivity(), handler);
+        mChatService = new BluetoothChatService(handler);
 
         // Initialize the buffer for outgoing messages
         mOutStringBuffer = new StringBuffer("");

@@ -49,7 +49,7 @@ public class BluetoothChatService {
     public static final int STATE_CONNECTING = 2; // now initiating an outgoing connection
     public static final int STATE_CONNECTED = 3;  // now connected to a remote device
 
-    public BluetoothChatService(Context context, Handler handler) {
+    public BluetoothChatService(Handler handler) {
         btAdapter = BluetoothAdapter.getDefaultAdapter();
         state = STATE_NONE;
         newState = state;
