@@ -4,8 +4,6 @@ package world.mitchmiller.launchcontroller.utils;
  * Created by Mitch Miller on 12/23/2017.
  */
 
-import world.mitchmiller.launchcontroller.Constants;
-
 /**
  * Mass of the rocket M = (weight in ounces)/16/2.2 = (1.2+0.7) / 16 / 2.2 = 0.05398 kg
  Area of the rocket: A = pi*r^2 = 3.14*(0.5*0.976/12*0.3048)^2 = 0.000483 m^2

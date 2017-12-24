@@ -1,10 +1,13 @@
-package world.mitchmiller.launchcontroller;
+package world.mitchmiller.launchcontroller.view;
 
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+
+import world.mitchmiller.launchcontroller.view.fragment.MainFragment;
+import world.mitchmiller.launchcontroller.R;
 
 public class MainActivity extends AppCompatActivity {
 

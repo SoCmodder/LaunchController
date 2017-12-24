@@ -1,4 +1,4 @@
-package world.mitchmiller.launchcontroller;
+package world.mitchmiller.launchcontroller.view;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -19,6 +19,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Set;
+
+import world.mitchmiller.launchcontroller.R;
 
 /**
  * This Activity appears as a dialog. It lists any paired devices and

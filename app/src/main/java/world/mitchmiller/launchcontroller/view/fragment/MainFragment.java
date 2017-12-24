@@ -1,4 +1,4 @@
-package world.mitchmiller.launchcontroller;
+package world.mitchmiller.launchcontroller.view.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -29,7 +29,11 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import world.mitchmiller.launchcontroller.service.BluetoothChatService;
+import world.mitchmiller.launchcontroller.utils.Constants;
+import world.mitchmiller.launchcontroller.R;
 import world.mitchmiller.launchcontroller.bt_chat.BTMessageAdapter;
+import world.mitchmiller.launchcontroller.view.DeviceListActivity;
 
 /**
  * Created by Mitch Miller on 12/17/2017.

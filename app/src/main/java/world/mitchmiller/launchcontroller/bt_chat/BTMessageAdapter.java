@@ -18,8 +18,8 @@ import world.mitchmiller.launchcontroller.R;
 
 public class BTMessageAdapter extends RecyclerView.Adapter<BTMessageAdapter.MessageHolder> {
 
-    List<String> messages = new ArrayList<>();
-    Context context;
+    private List<String> messages = new ArrayList<>();
+    private Context context;
 
     public BTMessageAdapter(Context context, ArrayList<String> messages) {
         this.context = context;

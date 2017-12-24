@@ -1,4 +1,4 @@
-package world.mitchmiller.launchcontroller;
+package world.mitchmiller.launchcontroller.service;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
+
+import world.mitchmiller.launchcontroller.utils.Constants;
 
 /**
  * Created by Mitch Miller on 12/17/2017.
